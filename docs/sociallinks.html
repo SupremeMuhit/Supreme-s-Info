@@ -17,7 +17,7 @@
       <!-- Sidebar -->
       <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-          <h1 class="logo">My Website</h1>
+          <h1 class="logo">Contents</h1>
           <button
             class="close-sidebar-btn"
             id="closeSidebar"
@@ -54,8 +54,12 @@
           <a href="myfavsites.html" class="nav-item">
             <span class="icon">💾</span> My Favourite site
           </a>
-          <a href="#" class="nav-item">
-            <span class="icon">🌐</span> Section 3
+          <a
+            href="javascript:void(0)"
+            class="nav-item"
+            id="secretVaultSidebarLink"
+          >
+            <span class="icon">🔒</span> Secret Vault
           </a>
           <a href="#" class="nav-item">
             <span class="icon">🔖</span> Section 4
@@ -118,34 +122,104 @@
           </section>
 
           <div class="grid-container">
-            <!-- Example Social Links -->
-            <a href="#" class="card">
-              <div class="card-icon">🐦</div>
-              <h3 class="card-title">Twitter / X</h3>
-              <p class="card-desc">Follow me for updates and thoughts.</p>
+            <!-- 1. YouTube -->
+            <a
+              href="https://youtube.com/@SupremeMuhit"
+              target="_blank"
+              class="card"
+            >
+              <div class="card-icon">
+                <img
+                  src="../assets/ytlogo.svg"
+                  alt="YouTube Logo"
+                  style="width: 32px; height: 32px"
+                />
+              </div>
+              <h3 class="card-title">YouTube</h3>
+              <p class="card-desc">
+                Subscribe! Not a creator, but check my
+                <strong>Playlists</strong>.
+              </p>
             </a>
 
-            <a href="#" class="card">
-              <div class="card-icon">📸</div>
-              <h3 class="card-title">Instagram</h3>
-              <p class="card-desc">See my latest photos and stories.</p>
+            <!-- 2. X (Twitter) -->
+            <a href="https://x.com/supreme_muhit" target="_blank" class="card">
+              <div class="card-icon">
+                <img
+                  src="../assets/xlogo.svg"
+                  alt="X Logo"
+                  style="width: 32px; height: 32px; transform: scale(1.6)"
+                />
+              </div>
+              <h3 class="card-title">X (Twitter)</h3>
+              <p class="card-desc"><strong>Follow</strong> me!</p>
             </a>
 
-            <a href="#" class="card">
-              <div class="card-icon">💼</div>
-              <h3 class="card-title">LinkedIn</h3>
-              <p class="card-desc">Connect with me professionally.</p>
-            </a>
+            <!-- 3. Discord -->
+            <div class="card" id="discordCard" style="cursor: pointer">
+              <div class="card-icon">
+                <img
+                  src="../assets/discordlogo.svg"
+                  alt="Discord Logo"
+                  style="width: 32px; height: 32px"
+                />
+              </div>
+              <h3 class="card-title">Discord</h3>
+              <p class="card-desc" id="discordUsername">
+                Friend me! Username: <strong>suprememuhit</strong>
+              </p>
+              <span
+                class="copy-hint"
+                style="
+                  font-size: 0.8rem;
+                  color: var(--accent-color);
+                  display: none;
+                "
+                >Click to copy username</span
+              >
+            </div>
 
-            <a href="#" class="card">
-              <div class="card-icon">🐙</div>
+            <!-- 4. GitHub -->
+            <a
+              href="https://github.com/SupremeMuhit"
+              target="_blank"
+              class="card"
+            >
+              <div class="card-icon">
+                <img
+                  src="../assets/ghlogo.svg"
+                  alt="GitHub Logo"
+                  style="width: 32px; height: 32px"
+                />
+              </div>
               <h3 class="card-title">GitHub</h3>
-              <p class="card-desc">Check out my code repositories.</p>
+              <p class="card-desc">
+                <strong>Not a dev</strong>. Visiting wastes your time.
+              </p>
+            </a>
+
+            <!-- 5. Instagram -->
+            <a
+              href="https://www.instagram.com/suprememuhit/"
+              target="_blank"
+              class="card"
+            >
+              <div class="card-icon">
+                <img
+                  src="../assets/instalogo.svg"
+                  alt="Instagram Logo"
+                  style="width: 32px; height: 32px"
+                />
+              </div>
+              <h3 class="card-title">Instagram</h3>
+              <p class="card-desc">
+                <strong>Useless ID</strong>. Visiting wastes your time.
+              </p>
             </a>
           </div>
 
           <footer class="footer">
-            <p>© 2025 My Website. Built with ❤️.</p>
+            <p>Site Under Construction</p>
           </footer>
         </div>
       </main>

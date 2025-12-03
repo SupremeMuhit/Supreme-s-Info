@@ -1,10 +1,10 @@
 /* CSS Variables */
 :root {
-  --bg-primary: #0f0f0f;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #252525;
+  --bg-primary: #000000; /* High contrast black */
+  --bg-secondary: #121212; /* Very dark gray */
+  --bg-tertiary: #1e1e1e;
   --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
+  --text-secondary: #b0b0b0;
   --accent-color: #3b82f6;
   --accent-hover: #2563eb;
   --border-color: #333333;
@@ -208,12 +208,12 @@ body {
 }
 
 .card {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background-color: #0a0a0a; /* High contrast dark for cards */
+  border: 1px solid #333; /* More visible border */
   border-radius: 8px;
   padding: 1.5rem;
   text-decoration: none;
-  transition: transform 0.2s, border-color 0.2s;
+  transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -222,6 +222,7 @@ body {
 .card:hover {
   transform: translateY(-2px);
   border-color: var(--accent-color);
+  background-color: #151515; /* Slightly lighter on hover */
 }
 
 .card-icon {
@@ -338,4 +339,108 @@ body {
   .app-container.sidebar-collapsed .desktop-sidebar-toggle {
     left: 1rem;
   }
+}
+
+/* Password Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.modal-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  background-color: #000000;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+}
+
+.modal-input:focus {
+  border-color: var(--accent-color);
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.modal-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-cancel:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.btn-unlock {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-unlock:hover {
+  background-color: #2563eb;
+}
+
+.error-msg {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  display: none;
+  text-align: left;
 }
