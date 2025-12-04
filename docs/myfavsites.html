@@ -1,158 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Favourite Sites - My Website</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="app-container">
-      <!-- Sidebar -->
-      <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-          <h1 class="logo">Contents</h1>
-          <button
-            class="close-sidebar-btn"
-            id="closeSidebar"
-            aria-label="Close Sidebar"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container sidebar-collapsed">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Contents</h1>
+                <button
+                    class="sidebar-toggle-btn"
+                    id="sidebarToggle"
+                    aria-label="Toggle Sidebar"
+                >
+                    <!-- Hamburger Icon (Default) -->
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon-menu"
+                    >
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                    <!-- Arrow Right (Hover on collapsed) -->
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon-arrow-right"
+                        style="display: none;"
+                    >
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                    <!-- Arrow Left (Expanded) -->
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon-arrow-left"
+                        style="display: none;"
+                    >
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search..." class="search-input">
+            </div>
 
-        <div class="search-container">
-          <input type="text" placeholder="Search..." class="search-input" />
-        </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <span class="icon">🏠</span> <span class="nav-text">Home</span>
+                </a>
+                <a href="sociallinks.html" class="nav-item">
+                    <span class="icon">📖</span> <span class="nav-text">My Social Links</span>
+                </a>
+                <a href="myfavsites.html" class="nav-item active">
+                    <span class="icon">💾</span> <span class="nav-text">My Favourite site</span>
+                </a>
+                <a href="tierlists.html" class="nav-item">
+                    <span class="icon">📊</span> <span class="nav-text">Tierlists</span>
+                </a>
+                <a href="javascript:void(0)" class="nav-item" id="secretVaultSidebarLink">
+                    <span class="icon">🔒</span> <span class="nav-text">Secret Vault</span>
+                </a>
+                <div class="nav-divider"></div>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚙️</span> <span class="nav-text">Settings</span>
+                </a>
+            </nav>
+        </aside>
 
-        <nav class="sidebar-nav">
-          <a href="index.html" class="nav-item">
-            <span class="icon">🏠</span> Home
-          </a>
-          <a href="sociallinks.html" class="nav-item">
-            <span class="icon">📖</span> My Social Links
-          </a>
-          <a href="myfavsites.html" class="nav-item active">
-            <span class="icon">💾</span> My Favourite site
-          </a>
-          <a href="tierlists.html" class="nav-item">
-            <span class="icon">📊</span> Tierlists
-          </a>
-          <a
-            href="javascript:void(0)"
-            class="nav-item"
-            id="secretVaultSidebarLink"
-          >
-            <span class="icon">🔒</span> Secret Vault
-          </a>
-          <div class="nav-divider"></div>
-          <a href="#" class="nav-item">
-            <span class="icon">⚙️</span> Settings
-          </a>
-        </nav>
-      </aside>
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-btn" id="menuBtn" aria-label="Toggle Sidebar">
+                        <!-- Icon: Chevron Right (Show when collapsed/closed) -->
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="icon-expand"
+                        >
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                        <!-- Icon: Chevron Left (Show when expanded/open) -->
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="icon-collapse"
+                            style="display: none;"
+                        >
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <h1 class="site-title">TSS</h1>
+                </div>
+            </header>
 
-      <!-- Main Content -->
-      <main class="main-content">
-        <button
-          class="desktop-sidebar-toggle"
-          id="desktopSidebarToggle"
-          aria-label="Toggle Sidebar"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-        <header class="top-bar">
-          <button class="menu-btn" id="menuBtn" aria-label="Open Menu">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-          <div class="breadcrumbs">Home / My Favourite site</div>
-        </header>
+            <div class="content-wrapper">
+                <section class="hero-section">
+                    <h1 class="hero-title">My Favourite Sites</h1>
+                    <p class="hero-subtitle">A collection of useful and interesting websites.</p>
+                </section>
 
-        <div class="content-wrapper">
-          <section class="hero-section">
-            <h1 class="hero-title">My Favourite Sites</h1>
-            <p class="hero-subtitle">
-              A collection of useful and interesting websites.
-            </p>
-          </section>
+                <div class="grid-container">
+                    <!-- Example Fav Sites -->
+                    <a href="https://fmhy.net" target="_blank" class="card">
+                        <div class="card-icon">⭐</div>
+                        <h3 class="card-title">FMHY</h3>
+                        <p class="card-desc">The largest collection of free stuff on the internet.</p>
+                    </a>
+                    
+                    <a href="#" class="card">
+                        <div class="card-icon">🔍</div>
+                        <h3 class="card-title">Google</h3>
+                        <p class="card-desc">The world's most popular search engine.</p>
+                    </a>
 
-          <div class="grid-container">
-            <!-- Example Fav Sites -->
-            <a href="https://fmhy.net" target="_blank" class="card">
-              <div class="card-icon">⭐</div>
-              <h3 class="card-title">FMHY</h3>
-              <p class="card-desc">
-                The largest collection of free stuff on the internet.
-              </p>
-            </a>
-
-            <a href="#" class="card">
-              <div class="card-icon">🔍</div>
-              <h3 class="card-title">Google</h3>
-              <p class="card-desc">The world's most popular search engine.</p>
-            </a>
-
-            <a href="#" class="card">
-              <div class="card-icon">💻</div>
-              <h3 class="card-title">GitHub</h3>
-              <p class="card-desc">Where the world builds software.</p>
-            </a>
-          </div>
-
-          <footer class="footer">
-            <p>Site Under Construction</p>
-          </footer>
-        </div>
-      </main>
-
-      <div class="overlay" id="overlay"></div>
+                    <a href="#" class="card">
+                        <div class="card-icon">💻</div>
+                        <h3 class="card-title">GitHub</h3>
+                        <p class="card-desc">Where the world builds software.</p>
+                    </a>
+                </div>
+                
+                <footer class="footer">
+                    <p>Site Under Construction</p>
+                </footer>
+            </div>
+        </main>
+        
+        <div class="overlay" id="overlay"></div>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>

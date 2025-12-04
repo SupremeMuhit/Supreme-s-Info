@@ -13,16 +13,17 @@
     />
   </head>
   <body>
-    <div class="app-container">
+    <div class="app-container sidebar-collapsed">
       <!-- Sidebar -->
       <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
           <h1 class="logo">Contents</h1>
           <button
-            class="close-sidebar-btn"
-            id="closeSidebar"
-            aria-label="Close Sidebar"
+            class="sidebar-toggle-btn"
+            id="sidebarToggle"
+            aria-label="Toggle Sidebar"
           >
+            <!-- Hamburger Icon (Default) -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -33,9 +34,43 @@
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
+              class="icon-menu"
             >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <!-- Arrow Right (Hover on collapsed) -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-arrow-right"
+              style="display: none"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <!-- Arrow Left (Expanded) -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-arrow-left"
+              style="display: none"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
           </button>
         </div>
@@ -46,71 +81,73 @@
 
         <nav class="sidebar-nav">
           <a href="index.html" class="nav-item">
-            <span class="icon">🏠</span> Home
+            <span class="icon">🏠</span> <span class="nav-text">Home</span>
           </a>
           <a href="sociallinks.html" class="nav-item active">
-            <span class="icon">📖</span> My Social Links
+            <span class="icon">📖</span>
+            <span class="nav-text">My Social Links</span>
           </a>
           <a href="myfavsites.html" class="nav-item">
-            <span class="icon">💾</span> My Favourite site
+            <span class="icon">💾</span>
+            <span class="nav-text">My Favourite site</span>
           </a>
           <a href="tierlists.html" class="nav-item">
-            <span class="icon">📊</span> Tierlists
+            <span class="icon">📊</span> <span class="nav-text">Tierlists</span>
           </a>
           <a
             href="javascript:void(0)"
             class="nav-item"
             id="secretVaultSidebarLink"
           >
-            <span class="icon">🔒</span> Secret Vault
+            <span class="icon">🔒</span>
+            <span class="nav-text">Secret Vault</span>
           </a>
           <div class="nav-divider"></div>
           <a href="#" class="nav-item">
-            <span class="icon">⚙️</span> Settings
+            <span class="icon">⚙️</span> <span class="nav-text">Settings</span>
           </a>
         </nav>
       </aside>
 
       <!-- Main Content -->
       <main class="main-content">
-        <button
-          class="desktop-sidebar-toggle"
-          id="desktopSidebarToggle"
-          aria-label="Toggle Sidebar"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
         <header class="top-bar">
-          <button class="menu-btn" id="menuBtn" aria-label="Open Menu">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-          <div class="breadcrumbs">Home / My Social Links</div>
+          <div class="top-bar-left">
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle Sidebar">
+              <!-- Icon: Chevron Right (Show when collapsed/closed) -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-expand"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+              <!-- Icon: Chevron Left (Show when expanded/open) -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-collapse"
+                style="display: none"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <h1 class="site-title">TSS</h1>
+          </div>
         </header>
 
         <div class="content-wrapper">
@@ -128,7 +165,7 @@
             >
               <div class="card-icon">
                 <img
-                  src="https://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/ytlogo.svg"
+                  src="https://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/ytlogo.svghttps://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/ytlogo.svg"
                   alt="YouTube Logo"
                   style="width: 32px; height: 32px"
                 />
@@ -144,7 +181,7 @@
             <a href="https://x.com/supreme_muhit" target="_blank" class="card">
               <div class="card-icon">
                 <img
-                  src="https://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/xlogo.svg"
+                  src="https://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/xlogo.svghttps://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/xlogo.svg"
                   alt="X Logo"
                   style="width: 32px; height: 32px"
                 />
@@ -157,7 +194,7 @@
             <div class="card" id="discordCard" style="cursor: pointer">
               <div class="card-icon">
                 <img
-                  src="https://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/discordlogo.svg"
+                  src="https://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/discordlogo.svghttps://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/discordlogo.svg"
                   alt="Discord Logo"
                   style="width: 32px; height: 32px"
                 />
@@ -185,7 +222,7 @@
             >
               <div class="card-icon">
                 <img
-                  src="https://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/ghlogo.svg"
+                  src="https://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/ghlogo.svghttps://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/ghlogo.svg"
                   alt="GitHub Logo"
                   style="width: 32px; height: 32px"
                 />
@@ -204,7 +241,7 @@
             >
               <div class="card-icon">
                 <img
-                  src="https://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/instalogo.svg"
+                  src="https://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/instalogo.svghttps://raw.githubusercontent.com/SupremeMuhit/site/650de8ac3721c5039c69782d2764c50a08a7c951/assets/instalogo.svg"
                   alt="Instagram Logo"
                   style="width: 32px; height: 32px"
                 />

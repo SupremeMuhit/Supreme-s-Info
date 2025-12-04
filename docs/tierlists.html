@@ -13,16 +13,17 @@
     />
   </head>
   <body>
-    <div class="app-container">
+    <div class="app-container sidebar-collapsed">
       <!-- Sidebar -->
       <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
           <h1 class="logo">Contents</h1>
           <button
-            class="close-sidebar-btn"
-            id="closeSidebar"
-            aria-label="Close Sidebar"
+            class="sidebar-toggle-btn"
+            id="sidebarToggle"
+            aria-label="Toggle Sidebar"
           >
+            <!-- Hamburger Icon (Default) -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -33,9 +34,43 @@
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
+              class="icon-menu"
             >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <!-- Arrow Right (Hover on collapsed) -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-arrow-right"
+              style="display: none;"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <!-- Arrow Left (Expanded) -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-arrow-left"
+              style="display: none;"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
           </button>
         </div>
@@ -46,69 +81,68 @@
 
         <nav class="sidebar-nav">
           <a href="index.html" class="nav-item">
-            <span class="icon">🏠</span> Home
+            <span class="icon">🏠</span> <span class="nav-text">Home</span>
           </a>
           <a href="sociallinks.html" class="nav-item">
-            <span class="icon">📖</span> My Social Links
+            <span class="icon">📖</span> <span class="nav-text">My Social Links</span>
           </a>
           <a href="myfavsites.html" class="nav-item">
-            <span class="icon">💾</span> My Favourite site
+            <span class="icon">💾</span> <span class="nav-text">My Favourite site</span>
           </a>
           <a href="#" class="nav-item active">
-            <span class="icon">📊</span> Tierlists
+            <span class="icon">📊</span> <span class="nav-text">Tierlists</span>
           </a>
           <a href="javascript:void(0)" class="nav-item" id="secretVaultSidebarLink">
-            <span class="icon">🔒</span> Secret Vault
+            <span class="icon">🔒</span> <span class="nav-text">Secret Vault</span>
           </a>
           <div class="nav-divider"></div>
           <a href="#" class="nav-item">
-            <span class="icon">⚙️</span> Settings
+            <span class="icon">⚙️</span> <span class="nav-text">Settings</span>
           </a>
         </nav>
       </aside>
 
       <!-- Main Content -->
       <main class="main-content">
-        <button
-          class="desktop-sidebar-toggle"
-          id="desktopSidebarToggle"
-          aria-label="Toggle Sidebar"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
+
         <header class="top-bar">
-          <div class="header-left">
-              <button class="menu-btn" id="menuBtn" aria-label="Open Menu">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <line x1="3" y1="12" x2="21" y2="12"></line>
-                  <line x1="3" y1="6" x2="21" y2="6"></line>
-                  <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-              </button>
-              <div class="header-logo">TSS</div>
+          <div class="top-bar-left">
+              <button class="menu-btn" id="menuBtn" aria-label="Toggle Sidebar">
+              <!-- Icon: Chevron Right (Show when collapsed/closed) -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-expand"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+              <!-- Icon: Chevron Left (Show when expanded/open) -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-collapse"
+                style="display: none;"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <h1 class="site-title">TSS</h1>
           </div>
+
           
           <div class="header-center">
               <div class="search-container-header">

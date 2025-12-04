@@ -4,10 +4,78 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeSidebarBtn = document.getElementById("closeSidebar");
   const overlay = document.getElementById("overlay");
 
-  function openSidebar() {
-    sidebar.classList.add("active");
-    overlay.classList.add("active");
-    document.body.style.overflow = "hidden"; // Prevent scrolling when sidebar is open
+  function updateToggleIcons(isCollapsed) {
+    const iconMenu = document.querySelector('.icon-menu');
+    const iconArrowRight = document.querySelector('.icon-arrow-right');
+    const iconArrowLeft = document.querySelector('.icon-arrow-left');
+    const toggleBtn = document.getElementById('sidebarToggle');
+    
+    if (!toggleBtn) return;
+
+    // Reset all first
+    if(iconMenu) iconMenu.style.display = 'none';
+    if(iconArrowRight) iconArrowRight.style.display = 'none';
+    if(iconArrowLeft) iconArrowLeft.style.display = 'none';
+
+    if (window.innerWidth > 768) {
+      // Desktop Logic
+      if (isCollapsed) {
+        // Collapsed state: Show Menu by default, Arrow Right on hover
+        if(iconMenu) iconMenu.style.display = 'block';
+        
+        toggleBtn.onmouseenter = () => {
+          if(iconMenu) iconMenu.style.display = 'none';
+          if(iconArrowRight) iconArrowRight.style.display = 'block';
+        };
+        
+        toggleBtn.onmouseleave = () => {
+          if(iconArrowRight) iconArrowRight.style.display = 'none';
+          if(iconMenu) iconMenu.style.display = 'block';
+        };
+      } else {
+        // Expanded state: Show Arrow Left always
+        if(iconArrowLeft) iconArrowLeft.style.display = 'block';
+        
+        // Clear hover effects for expanded state
+        toggleBtn.onmouseenter = null;
+        toggleBtn.onmouseleave = null;
+      }
+    } else {
+      // Mobile Logic
+      const isActive = sidebar.classList.contains('active');
+      if (isActive) {
+        if(iconArrowLeft) iconArrowLeft.style.display = 'block';
+      } else {
+        if(iconMenu) iconMenu.style.display = 'block';
+      }
+      toggleBtn.onmouseenter = null;
+      toggleBtn.onmouseleave = null;
+    }
+  }
+
+  function toggleSidebar() {
+    if (window.innerWidth > 768) {
+      // Desktop: Toggle collapse state
+      const container = document.querySelector('.app-container');
+      container.classList.toggle('sidebar-collapsed');
+      
+      const isCollapsed = container.classList.contains('sidebar-collapsed');
+      // Save state
+      localStorage.setItem('sidebarCollapsed', isCollapsed);
+      updateToggleIcons(isCollapsed);
+    } else {
+      // Mobile: Toggle active state
+      sidebar.classList.toggle('active');
+      overlay.classList.toggle('active');
+      
+      const isActive = sidebar.classList.contains('active');
+      if (isActive) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+      updateToggleIcons(false); 
+    }
   }
 
   function closeSidebar() {
@@ -24,8 +92,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Initialize
+  const container = document.querySelector('.app-container');
+  
+  if (window.innerWidth > 768) {
+    // Check saved state or default to collapsed
+    const savedCollapsed = localStorage.getItem('sidebarCollapsed');
+    // Default to true (collapsed) if not set, or if set to 'true'
+    const shouldBeCollapsed = savedCollapsed === null ? true : savedCollapsed === 'true';
+    
+    if (shouldBeCollapsed) {
+      container.classList.add('sidebar-collapsed');
+    } else {
+      container.classList.remove('sidebar-collapsed');
+    }
+    updateToggleIcons(shouldBeCollapsed);
+  } else {
+    // Mobile: Remove sidebar-collapsed class
+    container.classList.remove('sidebar-collapsed');
+    updateToggleIcons(false);
+  }
+
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  if (sidebarToggle) {
+    sidebarToggle.addEventListener('click', toggleSidebar);
+  }
+
   if (menuBtn) {
-    menuBtn.addEventListener("click", openSidebar);
+    menuBtn.addEventListener('click', toggleSidebar);
   }
 
   if (closeSidebarBtn) {
@@ -51,17 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-
-  // Desktop Sidebar Toggle
-  const desktopSidebarToggle = document.getElementById("desktopSidebarToggle");
-  const appContainer = document.querySelector(".app-container");
-
-  if (desktopSidebarToggle) {
-    desktopSidebarToggle.addEventListener("click", () => {
-      // Since button is only visible when collapsed, clicking it means OPEN
-      appContainer.classList.remove("sidebar-collapsed");
-    });
-  }
 
   // Discord Copy to Clipboard
   const discordCard = document.getElementById("discordCard");
@@ -265,6 +348,156 @@ document.addEventListener("DOMContentLoaded", () => {
     themeToggle.addEventListener("click", () => {
       const isLight = body.classList.contains("light-mode");
       setTheme(isLight ? "dark" : "light");
+    });
+  }
+  
+  // Language Toggle Logic with Custom Modal
+  const langToggle = document.getElementById("langToggle");
+  const langOptions = document.querySelectorAll(".lang-option");
+
+  // Inject Language Modal HTML
+  if (!document.getElementById("languageModal")) {
+    const langModalHTML = `
+      <div id="languageModal" class="modal">
+        <div class="modal-content">
+          <h2 class="modal-title">YOU FOOL🫵</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Those who don't know English have no rights to see this Supreme site!</p>
+          <div class="modal-buttons">
+            <button id="langOkBtn" class="modal-btn btn-unlock">OK</button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML("beforeend", langModalHTML);
+  }
+
+  const langModal = document.getElementById("languageModal");
+  const langOkBtn = document.getElementById("langOkBtn");
+
+  if (langOptions.length > 0) {
+    langOptions.forEach(option => {
+      option.addEventListener("click", () => {
+        const lang = option.getAttribute("data-lang");
+        
+        if (lang === "bn") {
+          // Show modal for BN
+          langModal.classList.add("active");
+        } else {
+          // Switch to EN (already selected, do nothing or add visual feedback)
+          langOptions.forEach(opt => opt.classList.remove("lang-option-active"));
+          option.classList.add("lang-option-active");
+        }
+      });
+    });
+  }
+
+  if (langOkBtn) {
+    langOkBtn.addEventListener("click", () => {
+      langModal.classList.remove("active");
+    });
+  }
+
+  // Close on click outside
+  if (langModal) {
+    langModal.addEventListener("click", (e) => {
+      if (e.target === langModal) {
+        langModal.classList.remove("active");
+      }
+    });
+  }
+
+  // Get Started and About Me Popups
+  const getStartedBtn = document.getElementById("getStartedBtn");
+  const aboutMeBtn = document.getElementById("aboutMeBtn");
+
+  // Inject Get Started Modal HTML
+  if (!document.getElementById("getStartedModal")) {
+    const getStartedModalHTML = `
+      <div id="getStartedModal" class="modal">
+        <div class="modal-content image-modal-content">
+          <button id="closeGetStartedBtn" class="close-modal-btn">✖</button>
+          <img src="../assets/get_started.webp" alt="Get Started">
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML("beforeend", getStartedModalHTML);
+  }
+
+  const getStartedModal = document.getElementById("getStartedModal");
+  const closeGetStartedBtn = document.getElementById("closeGetStartedBtn");
+  const getStartedAudio = new Audio("../assets/get_started.mp3");
+
+  if (getStartedBtn) {
+    getStartedBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      getStartedModal.classList.add("active");
+      getStartedAudio.play();
+    });
+  }
+
+  if (closeGetStartedBtn) {
+    closeGetStartedBtn.addEventListener("click", () => {
+      getStartedModal.classList.remove("active");
+      getStartedAudio.pause();
+      getStartedAudio.currentTime = 0;
+    });
+  }
+
+  // Close on click outside
+  if (getStartedModal) {
+    getStartedModal.addEventListener("click", (e) => {
+      if (e.target === getStartedModal) {
+        getStartedModal.classList.remove("active");
+        getStartedAudio.pause();
+        getStartedAudio.currentTime = 0;
+      }
+    });
+  }
+
+  // About Me Modal
+  if (!document.getElementById("aboutMeModal")) {
+    const aboutMeModalHTML = `
+      <div id="aboutMeModal" class="modal">
+        <div class="modal-content">
+          <h2 class="modal-title">About Me</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+            I am not a developer, not a content creator even I do not know to make websites, I am just a random person.
+            And this site is random, have random things.
+          </p>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+            <strong style="color: var(--text-primary); font-weight: 700;">This site is a shit, it is made of shit, you are seeing a shit, and you are a shit</strong>
+          </p>
+          <div class="modal-buttons">
+            <button id="aboutMeOkBtn" class="modal-btn btn-unlock">OK</button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML("beforeend", aboutMeModalHTML);
+  }
+
+  const aboutMeModal = document.getElementById("aboutMeModal");
+  const aboutMeOkBtn = document.getElementById("aboutMeOkBtn");
+
+  if (aboutMeBtn) {
+    aboutMeBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      aboutMeModal.classList.add("active");
+    });
+  }
+
+  if (aboutMeOkBtn) {
+    aboutMeOkBtn.addEventListener("click", () => {
+      aboutMeModal.classList.remove("active");
+    });
+  }
+
+  // Close on click outside
+  if (aboutMeModal) {
+    aboutMeModal.addEventListener("click", (e) => {
+      if (e.target === aboutMeModal) {
+        aboutMeModal.classList.remove("active");
+      }
     });
   }
 });
