@@ -136,7 +136,30 @@
                             <polyline points="15 18 9 12 15 6"></polyline>
                         </svg>
                     </button>
-                    <h1 class="site-title">TSS</h1>
+                    <div class="site-branding">
+                      <img src="https://github.com/SupremeMuhit/site/blob/main/assets/My%20Profile%20Pic.png?raw=true" alt="Logo" class="site-logo" />
+                      <h1 class="site-title">TSS</h1>
+                    </div>
+                    
+                    <div class="search-wrapper">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="search-icon"
+                      >
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                      <input type="text" placeholder="Search" class="top-search-input" readonly id="searchTrigger" />
+                      <span class="search-shortcut">Ctrl K</span>
+                    </div>
                 </div>
             </header>
 
@@ -146,25 +169,97 @@
                     <p class="hero-subtitle">A collection of useful and interesting websites.</p>
                 </section>
 
-                <div class="grid-container">
-                    <!-- Example Fav Sites -->
-                    <a href="https://fmhy.net" target="_blank" class="card">
-                        <div class="card-icon">⭐</div>
-                        <h3 class="card-title">FMHY</h3>
-                        <p class="card-desc">The largest collection of free stuff on the internet.</p>
-                    </a>
-                    
-                    <a href="#" class="card">
-                        <div class="card-icon">🔍</div>
-                        <h3 class="card-title">Google</h3>
-                        <p class="card-desc">The world's most popular search engine.</p>
-                    </a>
 
-                    <a href="#" class="card">
-                        <div class="card-icon">💻</div>
-                        <h3 class="card-title">GitHub</h3>
-                        <p class="card-desc">Where the world builds software.</p>
-                    </a>
+                <div class="grid-container">
+                    <!-- SECTIONS -->
+                    <h2 style="grid-column: 1 / -1; color: var(--text-primary); font-size: 1.5rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">Sections</h2>
+                    
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+                        <h3 class="card-title">Privacy</h3>
+                        <p class="card-desc">Privacy-focused tools and resources.</p>
+                    </button>
+                    
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg></div>
+                        <h3 class="card-title">AI</h3>
+                        <p class="card-desc">Artificial Intelligence resources.</p>
+                    </button>
+
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+                        <h3 class="card-title">Otaku/Streaming/Reading/Music</h3>
+                        <p class="card-desc">Entertainment and media resources.</p>
+                    </button>
+
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="11" x2="10" y2="11"></line><line x1="8" y1="9" x2="8" y2="13"></line><line x1="15" y1="12" x2="15.01" y2="12"></line><line x1="18" y1="10" x2="18.01" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg></div>
+                        <h3 class="card-title">Gaming</h3>
+                        <p class="card-desc">Gaming resources and platforms.</p>
+                    </button>
+
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
+                        <h3 class="card-title">Education</h3>
+                        <p class="card-desc">Educational tools and platforms.</p>
+                    </button>
+
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div>
+                        <h3 class="card-title">Download/Torrenting</h3>
+                        <p class="card-desc">File sharing and download resources.</p>
+                    </button>
+
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
+                        <h3 class="card-title">Android</h3>
+                        <p class="card-desc">Android apps and resources.</p>
+                    </button>
+
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+                        <h3 class="card-title">Miscellaneous</h3>
+                        <p class="card-desc">Various useful resources.</p>
+                    </button>
+
+                    <!-- TOOLS SECTION -->
+                    <h2 style="grid-column: 1 / -1; color: var(--text-primary); font-size: 1.5rem; margin: 2rem 0 0.5rem 0; border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">Tools</h2>
+                    
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
+                        <h3 class="card-title">System Tools/File Tools</h3>
+                        <p class="card-desc">System and file management tools.</p>
+                    </button>
+
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+                        <h3 class="card-title">Internet Tools/Social Media Tools</h3>
+                        <p class="card-desc">Internet and social media utilities.</p>
+                    </button>
+
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></div>
+                        <h3 class="card-title">Text Tools/Educational Tools</h3>
+                        <p class="card-desc">Text editing and educational tools.</p>
+                    </button>
+
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
+                        <h3 class="card-title">Gaming Tools</h3>
+                        <p class="card-desc">Tools for gamers and game development.</p>
+                    </button>
+
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div>
+                        <h3 class="card-title">Image Tools/Video Tools/Audio Tools</h3>
+                        <p class="card-desc">Media creation and editing tools.</p>
+                    </button>
+
+                    <button class="card" style="cursor: pointer;">
+                        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+                        <h3 class="card-title">Developer Tools</h3>
+                        <p class="card-desc">Tools for developers and programmers.</p>
+                    </button>
                 </div>
                 
                 <footer class="footer">
@@ -174,6 +269,34 @@
         </main>
         
         <div class="overlay" id="overlay"></div>
+    </div>
+
+    <!-- FMHY Style Search Modal -->
+    <div id="searchModal" class="search-modal">
+      <div class="search-modal-content">
+        <div class="search-modal-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-modal-icon">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" placeholder="Search" id="modalSearchInput" class="modal-search-input" autocomplete="off">
+          <div class="search-modal-actions">
+             <span class="search-key-hint" title="Close">
+               <svg width="15" height="15" aria-label="Close" role="img"><g stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="13" x2="13" y2="1"></line><line x1="1" y1="1" x2="13" y2="13"></line></g></svg>
+             </span>
+          </div>
+        </div>
+        <div class="search-modal-body">
+            <div class="search-no-results">
+                <p class="search-placeholder-text">No recent searches</p>
+            </div>
+        </div>
+        <div class="search-modal-footer">
+          <span class="search-footer-item"><kbd class="search-kbd">↑</kbd> <kbd class="search-kbd">↓</kbd> to navigate</span>
+          <span class="search-footer-item"><kbd class="search-kbd">↵</kbd> to select</span>
+          <span class="search-footer-item"><kbd class="search-kbd">esc</kbd> to close</span>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>

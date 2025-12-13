@@ -139,7 +139,30 @@
                 <polyline points="15 18 9 12 15 6"></polyline>
               </svg>
             </button>
-            <h1 class="site-title">TSS</h1>
+            <div class="site-branding">
+              <img src="https://github.com/SupremeMuhit/site/blob/main/assets/My%20Profile%20Pic.png?raw=true" alt="Logo" class="site-logo" />
+              <h1 class="site-title">TSS</h1>
+            </div>
+            
+            <div class="search-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="search-icon"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" placeholder="Search" class="top-search-input" readonly id="searchTrigger" />
+              <span class="search-shortcut">Ctrl K</span>
+            </div>
           </div>
         </header>
 
@@ -165,6 +188,34 @@
       </main>
 
       <div class="overlay" id="overlay"></div>
+    </div>
+
+    <!-- FMHY Style Search Modal -->
+    <div id="searchModal" class="search-modal">
+      <div class="search-modal-content">
+        <div class="search-modal-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-modal-icon">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" placeholder="Search" id="modalSearchInput" class="modal-search-input" autocomplete="off">
+          <div class="search-modal-actions">
+             <span class="search-key-hint" title="Close">
+               <svg width="15" height="15" aria-label="Close" role="img"><g stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="13" x2="13" y2="1"></line><line x1="1" y1="1" x2="13" y2="13"></line></g></svg>
+             </span>
+          </div>
+        </div>
+        <div class="search-modal-body">
+            <div class="search-no-results">
+                <p class="search-placeholder-text">No recent searches</p>
+            </div>
+        </div>
+        <div class="search-modal-footer">
+          <span class="search-footer-item"><kbd class="search-kbd">↑</kbd> <kbd class="search-kbd">↓</kbd> to navigate</span>
+          <span class="search-footer-item"><kbd class="search-kbd">↵</kbd> to select</span>
+          <span class="search-footer-item"><kbd class="search-kbd">esc</kbd> to close</span>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>

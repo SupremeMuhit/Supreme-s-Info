@@ -500,4 +500,57 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  // FMHY Search Modal Logic
+  const searchTrigger = document.getElementById('searchTrigger');
+  const searchModal = document.getElementById('searchModal');
+  const modalSearchInput = document.getElementById('modalSearchInput');
+
+  function openSearchModal() {
+    if (searchModal) {
+      searchModal.classList.add('active');
+      if (modalSearchInput) modalSearchInput.focus();
+    }
+  }
+
+  function closeSearchModal() {
+    if (searchModal) {
+      searchModal.classList.remove('active');
+    }
+  }
+
+  if (searchTrigger) {
+    searchTrigger.addEventListener('click', openSearchModal);
+  }
+
+  // Keyboard Shortcuts
+  document.addEventListener('keydown', (e) => {
+    // Ctrl + K or Cmd + K to open
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault(); // Prevent browser default
+      openSearchModal();
+    }
+    
+    // Esc to close
+    if (e.key === 'Escape' && searchModal && searchModal.classList.contains('active')) {
+      closeSearchModal();
+    }
+  });
+
+  // Close on click outside (Overlay)
+  if (searchModal) {
+    searchModal.addEventListener('click', (e) => {
+      if (e.target === searchModal) {
+        closeSearchModal();
+      }
+    });
+  }
+
+  // Clear Button Logic
+  // Close Button Logic (User requested X to close popup)
+  const closeBtn = document.querySelector('.search-modal-actions .search-key-hint');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      closeSearchModal();
+    });
+  }
 });
