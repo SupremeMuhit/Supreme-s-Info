@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# VitePress build & cache
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+docs/.vitepress/.temp/
+
+# Logs
+*.log*
+
+# Environment files
+.env
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
